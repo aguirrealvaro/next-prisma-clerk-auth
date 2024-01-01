@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: theme(colors.neutral.50);
+    --bg-secondary: theme(colors.white);
+
+    --border-primary: rgba(0, 0, 0, 0.1);
+    --hover-primary: rgba(0, 0, 0, 0.05);
+
+    --text-heading: theme(colors.black);
+    --text-primary: theme(colors.neutral.800);
+    --text-secondary: theme(colors.neutral.600);
+
+    --disabled-primary: theme(colors.neutral.300);
+    --disabled-secondary: theme(colors.neutral.500);
+  }
+
+  .dark {
+    --bg-primary: theme(colors.neutral.800);
+    --bg-secondary: theme(colors.neutral.700);
+
+    --border-primary: rgba(255, 255, 255, 0.1);
+    --hover-primary: rgba(255, 255, 255, 0.05);
+
+    --text-heading: theme(colors.white);
+    --text-primary: theme(colors.neutral.200);
+    --text-secondary: theme(colors.neutral.400);
+
+    --disabled-primary: theme(colors.neutral.700);
+    --disabled-secondary: theme(colors.neutral.500);
+  }
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    @apply border-border-primary;
+  }
+}

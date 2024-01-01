@@ -1,0 +1,46 @@
+{
+  "name": "next-tailwind-template",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev",
+    "start-dev": "next dev",
+    "start-prod": "next start",
+    "format": "prettier --write .",
+    "lint": "next lint",
+    "lint-fix": "next lint --fix",
+    "check-types": "tsc --noEmit",
+    "prepare": "husky install",
+    "pre-commit": "lint-staged --no-stash"
+  },
+  "dependencies": {
+    "clsx": "^2.1.0",
+    "next": "^14.0.4",
+    "next-themes": "^0.2.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "tailwind-merge": "^2.2.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.6",
+    "@types/react": "^18.2.46",
+    "@types/react-dom": "^18.2.18",
+    "@typescript-eslint/eslint-plugin": "^6.17.0",
+    "@typescript-eslint/parser": "^6.17.0",
+    "autoprefixer": "^10.4.16",
+    "eslint": "^8.56.0",
+    "eslint-config-next": "^14.0.4",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-prettier": "^5.1.2",
+    "eslint-plugin-tailwindcss": "^3.13.1",
+    "eslint-plugin-tsc": "^2.0.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "postcss": "^8.4.32",
+    "prettier": "^3.1.1",
+    "prettier-plugin-tailwindcss": "^0.5.10",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.3"
+  }
+}
