@@ -1,3 +1,2 @@
-# Next Tailwind Template
+# next-prisma-clerk-auth
 
-Template of a react production-ready application Typescript, Prettier, ESlint, Pre-commit, Tailwind and Dark Mode
