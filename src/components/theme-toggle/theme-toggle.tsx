@@ -16,7 +16,7 @@ export const ThemeToggle = () => {
 
   return (
     <button className="rounded p-2 hover:bg-bg-secondary" onClick={handleToggle}>
-      {theme === "light" ? <Sun {...ICON_PROPS} /> : <Moon {...ICON_PROPS} />}
+      {theme === "light" ? <Moon {...ICON_PROPS} /> : <Sun {...ICON_PROPS} />}
     </button>
   );
 };
