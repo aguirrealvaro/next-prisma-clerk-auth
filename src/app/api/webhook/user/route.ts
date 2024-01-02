@@ -3,6 +3,7 @@ import { WebhookEvent } from "@clerk/nextjs/server";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import { Webhook } from "svix";
+import prisma from "@/lib/prisma";
 
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
 
@@ -47,15 +48,19 @@ export async function POST(req: Request) {
     });
   }
 
-  // Get the ID and type
-  const { id } = evt.data;
-  const eventType = evt.type;
+  // Create internal user on schema
+  if (evt.type === "user.created" || evt.type === "user.updated") {
+    const { id, first_name } = evt.data;
 
-  console.log("*************************");
-  console.log(`Webhook ID: ${id}`);
-  console.log(`Webhook event type: ${eventType}`);
-  console.log("Webhook event:", evt);
-  console.log("*************************");
+    const user = await prisma.user.upsert({
+      where: { clerkId: id },
+      create: {
+        clerkId: id,
+        firstName: first_name,
+      },
+      update: { firstName: first_name },
+    });
 
-  return NextResponse.json({ data: "success" });
+    return NextResponse.json({ user });
+  }
 }
