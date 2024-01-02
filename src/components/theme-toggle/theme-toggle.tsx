@@ -1,7 +1,11 @@
 "use client";
 
+import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
-import { cn } from "@/utils/cn";
+
+const ICON_PROPS = {
+  size: 18,
+};
 
 export const ThemeToggle = () => {
   const { theme, setTheme } = useTheme();
@@ -11,14 +15,8 @@ export const ThemeToggle = () => {
   };
 
   return (
-    <button
-      onClick={handleToggle}
-      className={cn(
-        "rounded bg-sky-500 px-4 py-2 text-white hover:bg-sky-600",
-        "dark:text-black dark:hover:bg-sky-400"
-      )}
-    >
-      Toggle theme
+    <button className="rounded p-2 hover:bg-bg-secondary" onClick={handleToggle}>
+      {theme === "light" ? <Sun {...ICON_PROPS} /> : <Moon {...ICON_PROPS} />}
     </button>
   );
 };

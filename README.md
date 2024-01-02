@@ -2,5 +2,4 @@
 
 ### To Do:
 
-- theme icon
 - fix sign out url
