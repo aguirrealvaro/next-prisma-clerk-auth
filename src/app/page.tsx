@@ -1,10 +1,12 @@
-import { ThemeToggle } from "@/components";
+import { ThemeToggle, Wrapper } from "@/components";
 
 export default function Home() {
   return (
     <div>
-      <h1>Next Tailwind Template</h1>
-      <ThemeToggle />
+      <Wrapper>
+        <h1>Next Tailwind Template</h1>
+        <ThemeToggle />
+      </Wrapper>
     </div>
   );
 }
