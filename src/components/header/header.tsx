@@ -11,7 +11,7 @@ export const Header = () => {
           <div className="flex items-center gap-4">
             <ThemeToggle />
             <SignedIn>
-              <UserButton />
+              <UserButton afterSignOutUrl={process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL} />
             </SignedIn>
             <SignedOut>
               <SignInButton />
