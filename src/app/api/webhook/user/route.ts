@@ -7,8 +7,6 @@ import { Webhook } from "svix";
 const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
 
 export async function POST(req: Request) {
-  console.log("webhook fetched", req);
-
   if (!WEBHOOK_SECRET) {
     throw new Error("Please add WEBHOOK_SECRET from Clerk Dashboard to .env or .env.local");
   }
@@ -54,9 +52,10 @@ export async function POST(req: Request) {
   const eventType = evt.type;
 
   console.log("*************************");
-  console.log(`Webhook with and ID of ${id} and type of ${eventType}`);
-  console.log("Webhook body:", body);
+  console.log(`Webhook ID: ${id}`);
+  console.log(`Webhook event type: ${eventType}`);
+  console.log("Webhook event:", evt);
   console.log("*************************");
 
-  return NextResponse.json({ data: "hexllo" });
+  return NextResponse.json({ data: "success" });
 }
