@@ -1,4 +1,5 @@
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
+import Link from "next/link";
 import { Wrapper, ThemeToggle } from "@/components";
 
 export const Header = () => {
@@ -6,10 +7,16 @@ export const Header = () => {
     <header>
       <Wrapper>
         <div className="flex h-16 items-center justify-between">
-          <span>LOGO</span>
+          <Link href="/">LOGO</Link>
           <div className="flex items-center gap-4">
             <ThemeToggle />
-            <UserButton />
+            <SignedIn>
+              <UserButton />
+            </SignedIn>
+            <SignedOut>
+              <SignInButton />
+              <SignUpButton />
+            </SignedOut>
           </div>
         </div>
       </Wrapper>
