@@ -3,7 +3,9 @@ import { Wrapper } from "@/components";
 const ProtectedPage = () => {
   return (
     <div>
-      <Wrapper>Protected Page!</Wrapper>
+      <Wrapper>
+        <h2>Protected</h2>
+      </Wrapper>
     </div>
   );
 };

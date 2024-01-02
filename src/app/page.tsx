@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
       <Wrapper>
-        <h1>Next Tailwind Template</h1>
+        <h2>Home</h2>
       </Wrapper>
     </div>
   );
