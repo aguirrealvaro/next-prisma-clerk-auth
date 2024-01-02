@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
 import { ReactNode } from "react";
-import { ClerkProvider } from "@clerk/nextjs";
+import { ClerkProvider, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import { Metadata } from "next";
 import { Header } from "@/components";
 import { ThemeProvider } from "@/providers";
@@ -28,9 +28,14 @@ const RootLayout = ({ children }: RootLayoutProps) => {
         >
           <ThemeProvider>
             <div className="flex min-h-screen flex-col">
-              <Header />
-              <main className="flex flex-1 flex-col">{children}</main>
-              <footer>Footer</footer>
+              <ClerkLoading>
+                <div className="flex flex-1 items-center justify-center">loading</div>
+              </ClerkLoading>
+              <ClerkLoaded>
+                <Header />
+                <main className="flex flex-1 flex-col">{children}</main>
+                <footer>Footer</footer>
+              </ClerkLoaded>
             </div>
           </ThemeProvider>
         </body>
