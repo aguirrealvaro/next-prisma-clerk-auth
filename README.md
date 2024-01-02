@@ -4,6 +4,4 @@ App made with [Next](https://nextjs.org/), [Prisma](https://www.prisma.io/) as t
 
 The goal is to keep user data in sync between Clerk and the database using a webhook: when a new user signs up in Clerk, the user data will be added to the database. This way I can use relations between users and any new entity on db.
 
-### To Do:
-
-- deploy
+Link: [https://next-prisma-clerk-auth.vercel.app/](https://next-prisma-clerk-auth.vercel.app/)
