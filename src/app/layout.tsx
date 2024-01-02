@@ -1,9 +1,9 @@
 import "@/styles/globals.css";
 import { ReactNode } from "react";
-import { ClerkProvider, ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
+import { ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import { Metadata } from "next";
 import { Header } from "@/components";
-import { ThemeProvider } from "@/providers";
+import { ClerkProvider, ThemeProvider } from "@/providers";
 import { cn } from "@/utils/cn";
 import { inter } from "@/utils/fonts";
 
