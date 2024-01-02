@@ -8,15 +8,17 @@ const ICON_PROPS = {
 };
 
 export const ThemeToggle = () => {
-  const { theme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme } = useTheme();
+
+  const isLightTheme = resolvedTheme === "light";
 
   const handleToggle = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    setTheme(isLightTheme ? "dark" : "light");
   };
 
   return (
     <button className="rounded p-2 hover:bg-bg-secondary" onClick={handleToggle}>
-      {theme === "light" ? <Moon {...ICON_PROPS} /> : <Sun {...ICON_PROPS} />}
+      {isLightTheme ? <Moon {...ICON_PROPS} /> : <Sun {...ICON_PROPS} />}
     </button>
   );
 };
