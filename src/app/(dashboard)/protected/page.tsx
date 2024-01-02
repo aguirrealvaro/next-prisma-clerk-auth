@@ -1,10 +1,15 @@
+import { currentUser } from "@clerk/nextjs";
 import { Wrapper } from "@/components";
 
-const ProtectedPage = () => {
+const ProtectedPage = async () => {
+  const user = await currentUser();
+
+  if (!user) return null;
+
   return (
     <div>
       <Wrapper>
-        <h2>Protected</h2>
+        <p>Hello, {user.firstName}</p>
       </Wrapper>
     </div>
   );
