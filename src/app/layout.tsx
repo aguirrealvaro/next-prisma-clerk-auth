@@ -18,15 +18,15 @@ type RootLayoutProps = {
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <ClerkProvider>
-      <html lang="en" suppressHydrationWarning>
-        <body
-          className={cn(
-            "bg-bg-primary text-text-primary antialiased",
-            `${inter.variable} font-body`
-          )}
-        >
-          <ThemeProvider>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={cn(
+          "bg-bg-primary text-text-primary antialiased",
+          `${inter.variable} font-body`
+        )}
+      >
+        <ThemeProvider>
+          <ClerkProvider>
             <div className="flex min-h-screen flex-col">
               <ClerkLoading>
                 <div className="flex flex-1 items-center justify-center">loading</div>
@@ -37,10 +37,10 @@ const RootLayout = ({ children }: RootLayoutProps) => {
                 <footer>Footer</footer>
               </ClerkLoaded>
             </div>
-          </ThemeProvider>
-        </body>
-      </html>
-    </ClerkProvider>
+          </ClerkProvider>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 };
 
