@@ -1,5 +1,6 @@
 import "@/styles/globals.css";
 import { ReactNode } from "react";
+import { ClerkProvider } from "@clerk/nextjs";
 import { Metadata } from "next";
 import { ThemeProvider } from "@/providers";
 import { cn } from "@/utils/cn";
@@ -16,22 +17,24 @@ type RootLayoutProps = {
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          "bg-bg-primary text-text-primary antialiased",
-          `${inter.variable} font-body`
-        )}
-      >
-        <ThemeProvider>
-          <div className="flex min-h-screen flex-col">
-            <header>Header</header>
-            <main className="flex-1">{children}</main>
-            <footer>Footer</footer>
-          </div>
-        </ThemeProvider>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en" suppressHydrationWarning>
+        <body
+          className={cn(
+            "bg-bg-primary text-text-primary antialiased",
+            `${inter.variable} font-body`
+          )}
+        >
+          <ThemeProvider>
+            <div className="flex min-h-screen flex-col">
+              <header>Header</header>
+              <main className="flex-1">{children}</main>
+              <footer>Footer</footer>
+            </div>
+          </ThemeProvider>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 };
 
