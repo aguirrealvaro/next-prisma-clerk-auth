@@ -2,7 +2,7 @@ import "@/styles/globals.css";
 import { ReactNode } from "react";
 import { ClerkLoaded, ClerkLoading } from "@clerk/nextjs";
 import { Metadata } from "next";
-import { Header } from "@/components";
+import { Footer, Header } from "@/components";
 import { ClerkProvider, ThemeProvider } from "@/providers";
 import { cn } from "@/utils/cn";
 import { inter } from "@/utils/fonts";
@@ -34,7 +34,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
               <ClerkLoaded>
                 <Header />
                 <main className="flex flex-1 flex-col">{children}</main>
-                <footer>Footer</footer>
+                <Footer />
               </ClerkLoaded>
             </div>
           </ClerkProvider>

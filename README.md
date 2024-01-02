@@ -2,5 +2,5 @@
 
 ### To Do:
 
-- stack on footer
+- theme icon
 - fix sign out url
