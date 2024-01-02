@@ -8,7 +8,7 @@ import { cn } from "@/utils/cn";
 import { inter } from "@/utils/fonts";
 
 export const metadata: Metadata = {
-  title: "Next Tailwind Template",
+  title: "next-prisma-clerk-auth",
   description: "Description",
 };
 
