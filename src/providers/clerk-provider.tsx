@@ -11,7 +11,7 @@ type ClerkProviderProps = {
 export const ClerkProvider = ({ children }: ClerkProviderProps) => {
   const { resolvedTheme } = useTheme();
 
-  const clerkTheme = resolvedTheme === "light" ? undefined : dark;
+  const clerkTheme = resolvedTheme === "dark" ? dark : undefined;
 
   return (
     <DefaultClerkProvider
