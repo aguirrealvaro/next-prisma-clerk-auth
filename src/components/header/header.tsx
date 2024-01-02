@@ -10,6 +10,7 @@ export const Header = () => {
           <Link href="/">LOGO</Link>
           <div className="flex items-center gap-4">
             <ThemeToggle />
+            <Link href="/protected">Protected</Link>
             <SignedIn>
               <UserButton afterSignOutUrl={process.env.NEXT_PUBLIC_CLERK_SIGN_IN_URL} />
             </SignedIn>
