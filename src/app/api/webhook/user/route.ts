@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import { WebhookEvent } from "@clerk/nextjs/server";
 import { headers } from "next/headers";
 import { NextResponse } from "next/server";
@@ -42,7 +41,6 @@ export async function POST(req: Request) {
       "svix-signature": svix_signature,
     }) as WebhookEvent;
   } catch (err) {
-    console.error("Error verifying webhook:", err);
     return new Response("Error occured", {
       status: 400,
     });
@@ -50,15 +48,25 @@ export async function POST(req: Request) {
 
   // Create internal user on schema
   if (evt.type === "user.created" || evt.type === "user.updated") {
-    const { id, first_name } = evt.data;
+    const { id, first_name, last_name, email_addresses, primary_email_address_id } = evt.data;
+
+    const email =
+      email_addresses.find((email) => email.id === primary_email_address_id)?.email_address ||
+      "";
+
+    const newFields = {
+      firstName: first_name,
+      lastName: last_name,
+      email,
+    };
 
     const user = await prisma.user.upsert({
       where: { clerkId: id },
       create: {
         clerkId: id,
-        firstName: first_name,
+        ...newFields,
       },
-      update: { firstName: first_name },
+      update: newFields,
     });
 
     return NextResponse.json({ user });
